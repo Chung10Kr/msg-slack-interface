@@ -17,7 +17,7 @@ class Api{
     }
 
 
-    async _userList(userId)
+    async _getUserId(userId)
     {
       let result = await this.client.users.list();
           
@@ -34,7 +34,7 @@ class Api{
     //로그인 상태 확인
     async userStatus(userId)
     {
-      let memberKey = await this._userList(userId);
+      let memberKey = await this._getUserId(userId);
       if(!memberKey){
         return false;
       }
@@ -46,6 +46,17 @@ class Api{
       }
       return result['online'];
     }
+
+    checkChannel()
+    {
+
+    }
+
+    makeChannel()
+    {
+
+    }
+    
 }
 
 module.exports = Api
