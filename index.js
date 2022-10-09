@@ -13,9 +13,8 @@ class App{
       let online = await this.slack.userStatus( config.userId );
       console.log( online ) 
       
-
       this.slack.sendMsg({
-          'channel' : 'fastbox',
+          'channel' : 'slack-api-test',
           'username' : '이무배',
           'text' : '창식아 안녕???'
         });

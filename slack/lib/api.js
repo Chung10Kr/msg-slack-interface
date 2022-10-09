@@ -1,3 +1,4 @@
+const { ConsoleLogger } = require("@slack/logger");
 const { WebClient, LogLevel } = require("@slack/web-api");
 const config = require("../../config");
 
@@ -16,30 +17,11 @@ class Api{
       });
     }
 
-
-    async _getUserId(userId)
-    {
-      let result = await this.client.users.list();
-          
-      let memberKey;
-      for(let i=0; result.members.length; i++){
-        if( result.members[i]['name'] == userId ){
-          memberKey = result.members[i]['id'];
-          break;
-        }
-      };
-      return memberKey;
-    }
-
     //로그인 상태 확인
     async userStatus(userId)
     {
-      let memberKey = await this._getUserId(userId);
-      if(!memberKey){
-        return false;
-      }
       let result = await this.client.users.getPresence({
-        user:memberKey
+        user: config.memberId
       });
       if(!result['online']){
         return false;
@@ -47,14 +29,21 @@ class Api{
       return result['online'];
     }
 
-    checkChannel()
+    //메세지전송
+    sendMsg(opt)
     {
-
-    }
-
-    makeChannel()
-    {
-
+      let keys = ['channel','username','text'];
+      for(let i=0; i<keys.length; i++){
+        if(!Object.keys(opt).includes(keys[i])){
+          return false;
+        }
+      }
+      this.client.chat.postMessage({
+        username : opt['username'],
+        channel:opt['channel'],
+        text:opt['text'],
+        icon_emoji: ":kr:",
+      });
     }
     
 }

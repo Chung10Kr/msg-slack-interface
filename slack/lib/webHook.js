@@ -15,15 +15,8 @@ class WebHook{
     this.slack.setWebhook(webhookUri);
   }
 
-  /*
-  메세지 전송
-  opt = {
-      'channel' : 'fastbox',
-      'username' : '이무배',
-      'text' : '창식이 안녕?'
-  }
-  */
-  async sendMsg(opt)
+  //메세지전송
+  sendMsg(opt)
   {
     let keys = ['channel','username','text'];
     for(let i=0; i<keys.length; i++){
