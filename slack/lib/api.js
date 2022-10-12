@@ -1,4 +1,3 @@
-const { ConsoleLogger } = require("@slack/logger");
 const { WebClient, LogLevel } = require("@slack/web-api");
 const config = require("../../config");
 
@@ -11,8 +10,8 @@ class Api{
     _setApi()
     {
       
-      let apiToken = config.apiToken;
-      this.client = new WebClient(apiToken, {
+      let botToken = config.botToken;
+      this.client = new WebClient(botToken, {
         logLevel: LogLevel.ERROR
       });
     }

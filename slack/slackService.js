@@ -1,6 +1,8 @@
 
 let WebHook = require("./lib/webHook");
 let Api = require("./lib/api");
+let Socket = require("./lib/socket");
+
 const config = require("../config");
 
 class SlackService{
@@ -10,6 +12,7 @@ class SlackService{
 
       this.webHook = new WebHook();
       this.api = new Api();
+      this.socket = new Socket();
 
       this.instance = this;
   }
@@ -40,6 +43,11 @@ class SlackService{
   async userStatus(userId)
   {
     return await this.api.userStatus(userId);
+  }
+
+  async connect()
+  {
+    return await this.socket.connect();
   }
 }
 module.exports = SlackService;
