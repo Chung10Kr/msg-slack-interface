@@ -9,7 +9,7 @@
 
 3. 본인 ID 채널에 포스트
 
-![step1](public/img/step2.png)
+![step1](public/img/step3.png)
 
 4. 웹후크 URL 복사 및 저장하기
 

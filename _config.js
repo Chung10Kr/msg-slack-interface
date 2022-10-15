@@ -1,7 +1,8 @@
 module.exports = {
-    apiToken : "API Token",
-    webHookURL : "WebHool URL",
-    userId : "user ID"
+    webHookURL : "https://hooks.slack.com12312312312",
+    appToken : "xapp-1-xxxxxx",
+    botToken : "xoxb-xxxxx",
+    userToken : "xoxp-xxxxx",
+    signingSecret : "xxxxx",
 }
-// 셋팅후
-// _config.js -> config.js으로 파일 명 변경 필요
+
