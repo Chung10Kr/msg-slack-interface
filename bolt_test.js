@@ -1,6 +1,7 @@
 
 const config = require("./config");
 
+//npm install @slack/bolt
 const { App } = require('@slack/bolt');
 
 const app = new App({
@@ -11,14 +12,13 @@ const app = new App({
   port:3000
 });
 
-app.message(':wave:', async ({ message, say }) => {
-  await say(`Hello, <@${message.user}>`);
-});
 
+app.message('hello', async ({ message, say }) => {
+  await say(`Hellow, <@${message.user}>`);
+});
 
 (async () => {
   // Start your app
   let result = await app.start();
-  console.log( result );
   console.log('⚡️ Bolt app is running!');
 })();
