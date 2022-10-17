@@ -12,13 +12,12 @@ const app = new App({
   port:3000
 });
 
-
 app.message('hello', async ({ message, say }) => {
-  await say(`Hellow, <@${message.user}>`);
+  await say(`Hellow^^ , <@${message.user}>`);
 });
 
 (async () => {
   // Start your app
-  let result = await app.start();
+  await app.start();
   console.log('⚡️ Bolt app is running!');
 })();
